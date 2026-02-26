@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input,
+button,
+textarea {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
