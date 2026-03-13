@@ -9,7 +9,7 @@ export default function Dashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/me')
+        axios.get('/api/me')
             .then(res => {
                 setUser(res.data.user);
                 setBio(res.data.user.bio || '');
@@ -24,7 +24,7 @@ export default function Dashboard() {
         e.preventDefault();
         setMessage('');
         try {
-            const res = await axios.post('http://localhost:3000/api/update-profile', { bio });
+            const res = await axios.post('/api/update-profile', { bio });
             setMessage(res.data.message);
             setUser(prev => ({ ...prev, bio }));
         } catch (err) {
@@ -34,7 +34,7 @@ export default function Dashboard() {
 
     const handleLogout = async () => {
         try {
-            await axios.post('http://localhost:3000/api/logout');
+            await axios.post('/api/logout');
             navigate('/login');
         } catch (err) {
             console.error(err);

@@ -16,7 +16,7 @@ export default function Login() {
         setError('');
         setQuery('');
         try {
-            const res = await axios.post('http://localhost:3000/api/login', { username, password });
+            const res = await axios.post('/api/login', { username, password });
             if (res.data.message === 'Login successful') {
                 navigate('/dashboard');
             }

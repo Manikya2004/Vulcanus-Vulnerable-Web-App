@@ -14,7 +14,7 @@ export default function Register() {
         setError('');
         setSuccess('');
         try {
-            const res = await axios.post('http://localhost:3000/api/register', { username, password });
+            const res = await axios.post('/api/register', { username, password });
             setSuccess(res.data.message);
             setTimeout(() => navigate('/login'), 2000);
         } catch (err) {
