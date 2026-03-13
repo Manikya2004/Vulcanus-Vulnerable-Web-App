@@ -48,7 +48,7 @@ export default function Dashboard() {
             <h2>Dashboard</h2>
             <div>
                 <p><strong>Username:</strong> {user.username}</p>
-                <p><strong>Current Bio:</strong> {user.bio || 'No bio set.'}</p>
+                <p><strong>Current Bio:</strong> <span dangerouslySetInnerHTML={{ __html: user.bio || 'No bio set.' }} /></p>
             </div>
 
             <div>
