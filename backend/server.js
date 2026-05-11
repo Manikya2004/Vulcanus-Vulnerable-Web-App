@@ -8,6 +8,7 @@ const port = 3000;
 
 app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'], credentials: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const db = mysql.createConnection({
@@ -74,8 +75,8 @@ app.post('/api/login', (req, res) => {
   });
 });
 
-app.post('/api/update-profile', requireAuth, (req, res) => {
-  const { bio } = req.body;
+app.all('/api/update-profile', requireAuth, (req, res) => {
+  const bio = req.body.bio || req.query.bio;
   const username = req.user;
 
   const query = `UPDATE users SET bio = '${bio}' WHERE username = '${username}'`;
